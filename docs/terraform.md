@@ -48,8 +48,10 @@ terraform plan
 
 ```yaml
 include:
-  component: registry.gitlab.com/your-group/gitlab-components/terraform-plan
-  inputs:
-    tf_state_name: "production"
-    debug: "true"
+  - component: $CI_SERVER_FQDN/pl.rachuna-net/cicd/components/unit-test/terraform@$COMPONENT_VERSION_UNIT_TEST
+    inputs:
+      docker_image: $CONTAINER_IMAGE_TERRAFORM
+
+🧪 terraform plan:
+  rules: !reference [.rule:unit-test:terraform, rules]
 ```
