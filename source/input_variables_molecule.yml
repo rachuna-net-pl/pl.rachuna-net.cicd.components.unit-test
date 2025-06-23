@@ -1,0 +1,15 @@
+---
+.input-variables-molecule:
+  - |
+    echo ""
+    echo -e "\033[1;33m===>\033[0m 💾 Print set inputs Variables"
+    echo -e "┌─────────────────────────────────────┬────────────────────────────────────────────────────────────────────────────────────────────────────┐"
+    printf "| %-30s | %-100s |\n" "Variable" "Value"
+    echo -e "├─────────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────┤"
+    printf "| %-30s | %-100s |\n" "CONTAINER_IMAGE_ANSIBLE" $CONTAINER_IMAGE_ANSIBLE
+    printf "| %-30s | %-100s |\n" "GITLAB_SSH_KEY" "[MASKED]"
+    printf "| %-30s | %-100s |\n" "TEST_PROXMOX_HOST" "$TEST_PROXMOX_HOST"
+    printf "| %-30s | %-100s |\n" "TEST_PROXMOX_NODE" "$TEST_PROXMOX_NODE"
+    printf "| %-30s | %-100s |\n" "TEST_PROXMOX_USER" "$TEST_PROXMOX_USER"
+    printf "| %-30s | %-102s |\n" "TEST_PROXMOX_PASSWORD" "$TEST_PROXMOX_PASSWORD"
+    echo -e "└─────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────┘"
