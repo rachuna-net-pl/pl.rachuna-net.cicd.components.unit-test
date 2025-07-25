@@ -1,5 +1,5 @@
 ---
-.terraform_init:
+.unit-test:terraform_init:
   - |
     echo ""
     echo -e "\033[1;33m===>\033[0m 🔗 Terraform init"

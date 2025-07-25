@@ -17,22 +17,23 @@ variables:
   DEBUG: $[[ inputs.debug ]]
 
 include:
-  - local: /source/input_variables_terraform.yml
+  - local: /source/function_print_row.yml
+  - local: /source/terraform_input_variables.yml
   - local: /source/logo.yml
   - local: /source/terraform_init.yml
 
-.terraform:unit-test:base:
+..unit-test:terraform:unit-test:base:
   image: $CONTAINER_IMAGE_TERRAFORM
   before_script:
     - git config --global --add safe.directory ${CI_PROJECT_DIR}
     - !reference [.logo]
-    - !reference [.input-variables-terraform]
-    - !reference [.terraform_init]
+    - !reference [.unit-test:terraform_input_variables]
+    - !reference [.unit-test:terraform_init]
 
 
 🧪 terraform plan:
   stage: unit-test
-  extends: ['.terraform:unit-test:base']
+  extends: ['..unit-test:terraform:unit-test:base']
   script:
     - terraform plan
   rules:
